@@ -1,0 +1,35 @@
+<!-- 
+  final
+  inicio
+  nombre
+  padre
+  status
+  tipo
+  users_permissions_users
+ -->
+<ion-list>
+  <ion-item>
+    <ion-label>Inicio:</ion-label>
+    <ion-datetime display-format="DD.MM.YYYY" [(ngModel)]="newItem.inicio" ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Final:</ion-label>
+    <ion-datetime display-format="DD.MM.YYYY" [(ngModel)]="newItem.final"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tipo de Item:</ion-label>
+    <ion-select placeholder="Selecciona uno"  [(ngModel)]="newItem.tipo" >
+      <ion-select-option
+        *ngFor="let tipo of tipoItems"
+        [value]="tipo.id"
+        [disabled]="(tipo.tipo == 'Proyecto' && padre != null) || (tipo.tipo != 'Proyecto' && padre == null)"
+      >
+        {{ tipo.tipo }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-input placeholder="Nombre" [(ngModel)]="newItem.nombre"></ion-input>
+</ion-list>
+<ion-button (click)="registerItem()" expand="block" fill="clear" shape="round">
+  Guardar
+</ion-button>

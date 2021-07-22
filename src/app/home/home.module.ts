@@ -1,3 +1,5 @@
+import { ItemsComponent } from './../items/items.component';
+import { NewItemComponent } from './../items/new-item/new-item.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -14,6 +16,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, ItemsComponent, NewItemComponent]
 })
 export class HomePageModule {}
